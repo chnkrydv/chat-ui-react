@@ -10,25 +10,45 @@ const messageRecieved = (message, from) => ({
     from
 });
 
-const addRoom = (roomName) => ({
+const addRoom = (roomIndex, roomName) => ({
     type: 'ADD_ROOM',
+    roomIndex,
     roomName
 });
 
-const deleteRoom = (roomName) => ({
+const deleteRoom = (roomIndex) => ({
     type: 'DELETE_ROOM',
-    roomName
+    roomIndex
 });
 
-const openRoom = (roomName) => ({
+const openRoom = (roomIndex) => ({
     type: 'OPEN_ROOM',
-    roomName
+    roomIndex
 });
 
 const search = (searchText) => ({
     type: 'SEARCH',
     searchText
-})
+});
+
+const connectToServer = () => ({
+    type: 'CONNECT_TO_SERVER'
+});
+
+const updateMessageText = (messageText) => ({
+    type: 'UPDATE_MESSAGE_TEXT',
+    messageText
+});
+
+const updateSearchText = (searchText) => ({
+    type: 'UPDATE_SEARCH_TEXT',
+    searchText
+});
+
+const toggleAddRoomModal = (isOpen) => ({
+    type: 'TOGGLE_ADD_ROOM_MODAL',
+    isOpen
+});
 
 export {
     sendMessage,
@@ -36,5 +56,9 @@ export {
     addRoom,
     deleteRoom,
     openRoom,
-    search
+    search,
+    connectToServer,
+    updateMessageText,
+    updateSearchText,
+    toggleAddRoomModal,
 }
