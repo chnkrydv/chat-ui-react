@@ -11,6 +11,7 @@ class App extends Component {
       chatIndex: 0,
       chats: chats,
       chatText: '',
+      modalOpen: false
     }
   }
 
@@ -40,7 +41,7 @@ class App extends Component {
   }
 
   render() {
-    const { chatIndex, chats, searchText, chatText } = this.state;
+    const { chatIndex, chats, searchText, chatText, modalOpen } = this.state;
     const { friend, messages } = chats[chatIndex];
 
     return (
@@ -51,6 +52,7 @@ class App extends Component {
           onSearchInputChange={this.onSearchInputChange}
           selectedIndex={chatIndex}
           onChatSelect={this.onChatSelect}
+          modalOpen={modalOpen}
         />
         <Content
           friend={friend}

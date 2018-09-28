@@ -18,6 +18,10 @@
   visibility: hidden
 }
 
+.gone{
+  display: none;
+}
 
-@import './stateful.css';
+
 @import './stateless.css';
+@import './stateful.css';

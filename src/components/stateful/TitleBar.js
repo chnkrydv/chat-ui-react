@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { Avatar, Options } from '../stateless';
+import { Avatar, Options, AddChatRoom } from '../stateless';
 
-const TitleBar = ({ name }) => (
+const TitleBar = ({ name, modalOpen }) => (
   <div className="titlebar">
     <Avatar name={name} />
     {name}
-    <Options />
+    <AddChatRoom />
+    <Options modalOpen={modalOpen}/>
   </div>
 )
 

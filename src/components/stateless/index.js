@@ -5,6 +5,8 @@ import SearchBox from './SearchBox';
 import Highlighted from './Highlighted';
 import Timestamp from './Timestamp';
 import PeekMessage from './PeekMessage';
+import AddChatRoom from './AddChatRoom';
+import Modal from './Modal';
 
 export {
   Avatar,
@@ -14,4 +16,6 @@ export {
   Highlighted,
   Timestamp,
   PeekMessage,
+  AddChatRoom,
+  Modal,
 }

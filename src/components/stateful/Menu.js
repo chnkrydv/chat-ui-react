@@ -3,12 +3,12 @@ import React from 'react';
 import { TitleBar, Chat } from './';
 import { SearchBox } from '../stateless';
 
-const Menu = ({ chats, onSearchInputChange, selectedIndex, onChatSelect, searchText }) => {
+const Menu = ({ chats, onSearchInputChange, selectedIndex, onChatSelect, searchText, modalOpen }) => {
   const selectChat = index => onChatSelect(index);
 
   return (
     <div className="menu">
-      <TitleBar name="Chandan Kumar" />
+      <TitleBar name="Chandan Kumar" modalOpen={modalOpen}/>
       <SearchBox
         onSearchInputChange={onSearchInputChange}
       />
