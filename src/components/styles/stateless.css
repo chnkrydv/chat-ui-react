@@ -1,0 +1,75 @@
+.avatar{
+  width: 50px;
+  height: 50px;
+  border-radius: 51%;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.options{
+  width: 30px;
+  height: 30px;
+  border-radius: 51%;
+  text-align: center;
+  justify-self: end;
+  cursor: pointer;
+}
+
+.options__icon{
+  font-size: 28px;
+  margin-top: 1px;
+}
+
+.options:hover{
+  background-color: rgba(0,0,0,0.1);
+}
+
+.searchbox{
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+  color: #888;
+}
+
+.searchbox__wrapper{
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: white;
+  margin: 16px;
+  height: 38px;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  justify-items: center;
+  align-items: center;
+}
+
+.searchbox__input{
+  border: none;
+  width: 100%;
+}
+
+.timestamp{
+  font-size: 12px;
+  height: 12px;
+  color: #999;
+  text-align: right;
+}
+
+.message{
+  margin: 8px 0px;
+  border-radius: 10px;
+  min-height: 20px;
+  font-size: 14px;
+  background-color: white;
+  color: #666;
+  min-width: 26%;
+  max-width: 80%;
+  box-shadow: 0 2px 5px -2px #aaa;
+  padding: 10px;
+  justify-self: start;
+}
+
+.my-message{
+  background-color: #dcf8c6;
+  justify-self: end;
+}

@@ -1,0 +1,23 @@
+.App {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+}
+
+.colored{
+  color: #0b0;
+}
+
+.bold{
+  font-weight: 700;
+}
+
+.hidden{
+  visibility: hidden
+}
+
+
+@import './stateful.css';
+@import './stateless.css';
