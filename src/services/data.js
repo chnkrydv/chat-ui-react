@@ -29,7 +29,7 @@ const rooms = [
   },
   {
     id: 'srkch',
-    name: 'Saurabh Kumar Chuitiya',
+    name: 'Saurabh Kumar',
     messages: [
       {
         fromMe: false,
@@ -63,6 +63,11 @@ const rooms = [
   }
 ];
 
+const user = {
+  name: 'Chandan Kumar',
+  username: 'chnkr'
+};
+
 const friends = [
   {
     username: 'nitagr',
@@ -70,38 +75,21 @@ const friends = [
   },
   {
     username: 'srkch',
-    name: 'Saurabh Kumar Chutiya',
+    name: 'Saurabh Kumar',
   },
 ];
 
-const hostname = 'http://localhost';
-const port = 1989;
-const packet = {
-  event: '',
-  payload: {}
-};
-const config = {
-  serverUrl: `${hostname}:${port}`,
-  socketSourceUrl: `${hostname}:${port}/socket.io/socket.io.js`,
+const app = {
+  user: user,
+  online: friends,
+  rooms: rooms
 }
 
-const connect = () => {
-}
-
-const send = (socket, packet) => {
-  const { event, payload } = packet;
-  socket.emit(event, payload);
-}
-
-const recieve = (socket, event, callback) => {
-  socket.on(event, callback);
-}
-
-const createChatRoom = () => {
-}
-
-const getChatRooms = () => {
-}
+const createRoom = (id, name) => ({
+  id,
+  name,
+  messages: [],
+});
 
 const createMessage = (messageText, reciever) => ({
   fromMe: true,
@@ -111,13 +99,17 @@ const createMessage = (messageText, reciever) => ({
   seen: false,
 });
 
+const getOnlineList = () => friends;
+
+const getProfile = () => user;
+
+const getMessages = roomId => rooms.filter(room => room.id === roomId)[0];
+
 export {
   rooms,
-  friends,
-  connect,
-  send,
-  recieve,
-  createChatRoom,
-  getChatRooms,
+  createRoom,
   createMessage,
+  getOnlineList,
+  getProfile,
+  getMessages,
 }

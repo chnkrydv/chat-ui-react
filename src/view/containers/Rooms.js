@@ -5,19 +5,25 @@ import { openRoom } from '../../store/actions'
 import { Room } from '../components';
 
 const Rooms = ({ rooms, searchText, selectedIndex, openRoom }) => {
+  const openRoomWithDetails = index => openRoom(index, rooms[index]);
+
   return (
     <div>
-      {rooms.map(({ name }, key) => (
-        <Room
-          key={key}
-          index={key}
-          name={name}
-          lastMessage={'kya kar raha hai bhai'}
-          searchText={searchText}
-          selected={selectedIndex === key}
-          onSelect={openRoom}
-        />
-      ))}
+      {rooms.length
+        ? rooms.map(({id, name, messages}, key) => (
+          <Room
+            key={key}
+            index={key}
+            id={id}
+            name={name}
+            lastMessage={messages[messages.length - 1]}
+            searchText={searchText}
+            selected={selectedIndex === key}
+            onSelect={openRoomWithDetails}
+          />
+        ))
+        : null
+      }
     </div>
   );
 }
@@ -29,7 +35,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  openRoom: roomIndex => dispatch(openRoom(roomIndex)),
+  openRoom: (roomIndex, room) => dispatch(openRoom(roomIndex, room)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Rooms);

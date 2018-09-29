@@ -10,6 +10,7 @@ const Send = ({ roomId, messageText, updateMessageText, sendMessage }) => {
     if(!messageText) return;
 
     sendMessage(messageText, roomId);
+    console.log('sent msg to: ', roomId)
     updateMessageText('');
   }
 
@@ -35,7 +36,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateMessageText: message => dispatch(updateMessageText(message)),
-  sendMessage: message => dispatch(sendMessage(message)),
+  sendMessage: (message, to) => dispatch(sendMessage(message, to)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Send);

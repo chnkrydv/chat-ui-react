@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Add = ({ onComplete }) => (
-  <div className="option">
+const Add = ({ onClick }) => (
+  <div className="option" onClick={onClick}>
     <i className="material-icons option__icon">add</i>
   </div>
 )

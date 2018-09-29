@@ -1,10 +1,10 @@
 import React from 'react';
 
-const PeekMessage = ({ className, lastMessage }) => (
+const PeekMessage = ({ className, lastMessage='' }) => (
   <div
     className={`peek-message ${className}`}
   >
-    PeekMessage window
+    {lastMessage}
   </div>
 );
 
