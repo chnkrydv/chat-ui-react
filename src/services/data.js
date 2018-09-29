@@ -65,16 +65,16 @@ const rooms = [
 
 const user = {
   name: 'Chandan Kumar',
-  username: 'chnkr'
+  id: 'chnkr'
 };
 
 const friends = [
   {
-    username: 'nitagr',
+    id: 'nitagr',
     name: 'Nitesh Agarwal',
   },
   {
-    username: 'srkch',
+    id: 'srkch',
     name: 'Saurabh Kumar',
   },
 ];

@@ -4,7 +4,7 @@ const initState = {
   loading: false,
   addRoomModalOpen: false,
   user: '',
-  username: '',
+  id: '',
   userOptionsModalOpen: false,
 };
 
@@ -16,7 +16,7 @@ const app = (state = initState, action) => {
       return { 
         ...state,
         user: user.name,
-        username: user.username,
+        id: user.id,
       };
     case 'UPDATE_SEARCH_TEXT':
       return { ...state, searchText: action.searchText };

@@ -4,16 +4,18 @@ const initState = {
   selectedIndex: -1,
   searchText: '',
   list: [],
-  onlineList: getOnlineList(),
+  availableList: getOnlineList(),
 };
 
 const rooms = (state = initState, action) => {
   switch (action.type) {
     case 'ADD_ROOM':
+      const { newList, newAvailableList } = addAndUpdateRooms(state, action);
       return {
         ...state,
         selectedIndex: state.list.length,
-        list: addAndUpdateRooms(state, action),
+        list: newList,
+        availableList: newAvailableList,
       };
     case 'OPEN_ROOM':
       return { ...state, selectedIndex: action.roomIndex };
@@ -22,6 +24,9 @@ const rooms = (state = initState, action) => {
         ...state,
         unreadMessages: 3
       };
+    case 'UPDATE_SEARCH_TEXT':
+      console.log(action.searchText)
+      return { ...state, searchText: action.searchText };
     case 'UPDATE_MESSAGE_TEXT':
       return { ...state, messageText: action.messageText };
     case 'SEND_MESSAGE':
@@ -34,13 +39,16 @@ const rooms = (state = initState, action) => {
   }
 }
 
-const addAndUpdateRooms = ({list}, {roomId, roomName})  => {
-  return [...list, createRoom(roomId, roomName)]
+const addAndUpdateRooms = ({ list, availableList }, { roomId, roomName }) => {
+  const newAvailableList = availableList.filter(room => (room.id !== roomId));
+  const newList = [...list, createRoom(roomId, roomName)];
+
+  return { newList, newAvailableList };
 }
 
-const roomsAfterSendingMessage = ({list}, {message, to}) => {
+const roomsAfterSendingMessage = ({ list }, { message, to }) => {
   const newList = list.map(room => {
-    if(room && room.id === to)
+    if (room && room.id === to)
       room.messages = [...room.messages, createMessage(message, to)];
 
     return room;

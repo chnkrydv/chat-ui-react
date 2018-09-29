@@ -1,21 +1,16 @@
 import React from 'react';
 
-import { Avatar, Add, More, Modal } from '.';
+import { Avatar, AddButton, MoreButton, Modal } from '.';
 
-const ProfileTitle = ({ isUser, name, addRoom, modalOpen, toggleProfileModal }) => (
+const ProfileTitle = ({ name, children, modalOpen, isModalOpen }) => (
   <div className="profile-title">
     <Avatar name={name} />
-    {name}
-    {isUser && (
-      <Add
-        onClick={addRoom}
-      />
-    )}
-    <More onClick={toggleProfileModal}>
+    {name || ' '}
+    <MoreButton onClick={isModalOpen}>
       <Modal open={modalOpen}>
-        this is options modal
+        {children}
       </Modal>
-    </More>
+    </MoreButton>
   </div>
 )
 

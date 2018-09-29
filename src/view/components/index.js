@@ -1,10 +1,10 @@
-import Add from './Add';
+import AddButton from './AddButton';
 import Avatar from './Avatar';
 import Message from './Message';
-import More from './More';
+import MoreButton from './MoreButton';
 import SearchBox from './SearchBox';
 import Highlighted from './Highlighted';
-import Room from './Room';
+import RoomTile from './RoomTile';
 import Timestamp from './Timestamp';
 import PeekMessage from './PeekMessage';
 import Modal from './Modal';
@@ -13,12 +13,12 @@ import ProfileTitle from './ProfileTitle';
 export {
   Avatar,
   Message,
-  More,
+  MoreButton,
   SearchBox,
   Highlighted,
-  Room,
+  RoomTile,
   PeekMessage,
-  Add,
+  AddButton,
   Modal,
   Timestamp,
   ProfileTitle,

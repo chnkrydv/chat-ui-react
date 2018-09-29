@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Add = ({ onClick }) => (
+const AddButton = ({ onClick }) => (
   <div className="option" onClick={onClick}>
     <i className="material-icons option__icon">add</i>
   </div>
 )
 
-export default Add;
+export default AddButton;

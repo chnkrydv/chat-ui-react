@@ -25,6 +25,17 @@
   background-color: rgba(0,0,0,0.1);
 }
 
+
+.profile-title{
+  display: grid;
+  grid-template-columns: 60px 1fr 40px;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  font-size: 18px;
+  align-items: center;
+}
+
+
 .searchbox{
   background-color: #f8f8f8;
   border-bottom: 1px solid #eee;
@@ -38,14 +49,19 @@
   margin: 16px;
   height: 38px;
   display: grid;
-  grid-template-columns: 40px 1fr 40px;
+  grid-template-columns: 1fr 40px;
   justify-items: center;
   align-items: center;
 }
 
 .searchbox__input{
   border: none;
-  width: 100%;
+  padding-left: 20px;
+  justify-self: stretch;
+}
+
+.searchbox__close{
+  cursor: pointer;
 }
 
 .timestamp{

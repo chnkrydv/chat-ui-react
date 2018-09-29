@@ -2,21 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { openRoom } from '../../store/actions'
-import { Room } from '../components';
+import { RoomTile } from '../components';
 
 const Rooms = ({ rooms, searchText, selectedIndex, openRoom }) => {
   const openRoomWithDetails = index => openRoom(index, rooms[index]);
 
   return (
-    <div>
+    <div className="rooms">
+      {
+        !rooms.length
+          ? (<div className="rooms__title">
+            Add an online friend to chat
+            </div>)
+          : null
+      }
       {rooms.length
-        ? rooms.map(({id, name, messages}, key) => (
-          <Room
+        ? rooms.map(({ id, name, messages }, key) => (
+          <RoomTile
             key={key}
             index={key}
             id={id}
             name={name}
-            lastMessage={messages[messages.length - 1]}
+            peekMessage={messages[messages.length - 1]}
             searchText={searchText}
             selected={selectedIndex === key}
             onSelect={openRoomWithDetails}

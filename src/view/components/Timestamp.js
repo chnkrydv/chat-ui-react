@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Timestamp = ({ className, time }) => {
+  const twoDigits = number => ('0' + number).slice(-2);
   const timeString = time 
-    ? time.getHours() + ':' + time.getMinutes()
+    ? twoDigits(time.getHours()) + ':' + twoDigits(time.getMinutes())
     : '';
   
   return (

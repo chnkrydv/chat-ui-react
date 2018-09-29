@@ -4,11 +4,18 @@ import { connect } from 'react-redux';
 import { updateSearchText } from '../../store/actions';
 import { SearchBox } from '../components';
 
-const SearchRoom = ({ updateSearchText }) => (
-  <SearchBox
-    onSearchInputChange={updateSearchText}
-  />
-);
+const SearchRoom = ({ roomsSearchText, updateSearchText }) => {
+  const clearText = () => updateSearchText('');
+
+  return (
+    <SearchBox
+      placeholder="Search a friend or room.."
+      searchText={roomsSearchText}
+      onSearchInputChange={updateSearchText}
+      clearText={clearText}
+    />
+  );
+}
 
 const mapStateToProps = state => ({
   roomsSearchText: state.rooms.searchText,
