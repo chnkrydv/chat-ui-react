@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Timestamp = ({ className, lastMessage }) => (
+const Timestamp = ({ className, time }) => (
   <div
     className={`timestamp ${className || ''}`}
   >
-    10:54 AM
+    {time.getHours() + ':' + time.getMinutes()}
   </div>
 );
 

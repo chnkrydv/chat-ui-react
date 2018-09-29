@@ -1,11 +1,13 @@
-const chats = [
+const rooms = [
   {
-    friend: 'Nitesh Agarwal',
+    id: 'nitagr',
+    name: 'Nitesh Agarwal',
     messages: [
       {
         fromMe: false,
         text: 'kya kar raha hai bhai, fee hai kya',
         time: Date.now() - 387812,
+        seen: true,
       },
       {
         fromMe: true,
@@ -26,7 +28,8 @@ const chats = [
     ]
   },
   {
-    friend: 'Saurabh Kumar',
+    id: 'srkch',
+    name: 'Saurabh Kumar Chuitiya',
     messages: [
       {
         fromMe: false,
@@ -60,6 +63,17 @@ const chats = [
   }
 ];
 
+const friends = [
+  {
+    username: 'nitagr',
+    name: 'Nitesh Agarwal',
+  },
+  {
+    username: 'srkch',
+    name: 'Saurabh Kumar Chutiya',
+  },
+];
+
 const hostname = 'http://localhost';
 const port = 1989;
 const packet = {
@@ -89,11 +103,21 @@ const createChatRoom = () => {
 const getChatRooms = () => {
 }
 
+const createMessage = (messageText, reciever) => ({
+  fromMe: true,
+  to: reciever,
+  text: messageText,
+  time: new Date(),
+  seen: false,
+});
+
 export {
-  chats,
+  rooms,
+  friends,
   connect,
   send,
   recieve,
   createChatRoom,
-  getChatRooms
+  getChatRooms,
+  createMessage,
 }

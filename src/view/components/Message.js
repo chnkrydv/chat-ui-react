@@ -6,7 +6,7 @@ const Message = ({ fromMe, text, time }) => (
     className={`message ${fromMe ? 'my-message' : ''}`}
   >
     {text}
-    <Timestamp className="message__timestamp"/>
+    <Timestamp className="message__timestamp" time={time}/>
   </div>
 );
 

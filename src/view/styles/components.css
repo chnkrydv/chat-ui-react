@@ -7,7 +7,7 @@
   background-color: rgba(0,0,0,0.1);
 }
 
-.options{
+.option{
   width: 30px;
   height: 30px;
   border-radius: 51%;
@@ -16,12 +16,12 @@
   cursor: pointer;
 }
 
-.options__icon{
+.option__icon{
   font-size: 28px;
   margin-top: 1px;
 }
 
-.options:hover{
+.option:hover{
   background-color: rgba(0,0,0,0.1);
 }
 

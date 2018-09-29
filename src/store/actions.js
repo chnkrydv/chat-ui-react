@@ -1,28 +1,16 @@
-const sendMessage = (message, to) => ({
-    type: 'SEND_MESSAGE',
-    message,
-    to
-});
-
-const messageRecieved = (message, from) => ({
-    type: 'MESSAGE_RECIEVED',
-    message,
-    from
-});
-
 const addRoom = (roomIndex, roomName) => ({
     type: 'ADD_ROOM',
     roomIndex,
     roomName
 });
 
-const deleteRoom = (roomIndex) => ({
-    type: 'DELETE_ROOM',
+const openRoom = (roomIndex) => ({
+    type: 'OPEN_ROOM',
     roomIndex
 });
 
-const openRoom = (roomIndex) => ({
-    type: 'OPEN_ROOM',
+const deleteRoom = (roomIndex) => ({
+    type: 'DELETE_ROOM',
     roomIndex
 });
 
@@ -38,6 +26,18 @@ const connectToServer = () => ({
 const updateMessageText = (messageText) => ({
     type: 'UPDATE_MESSAGE_TEXT',
     messageText
+});
+
+const sendMessage = (message, to) => ({
+    type: 'SEND_MESSAGE',
+    message,
+    to
+});
+
+const messageRecieved = (message, from) => ({
+    type: 'MESSAGE_RECIEVED',
+    message,
+    from
 });
 
 const updateSearchText = (searchText) => ({

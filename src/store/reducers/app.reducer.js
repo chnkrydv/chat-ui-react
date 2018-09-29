@@ -1,5 +1,9 @@
 const initState = {
+    loading: false,
     addRoomModalOpen: false,
+    user: 'Chandan Kumar',
+    username: 'chnkr',
+    userOptionsModalOpen: false,
 };
 
 const app = (state = initState, action) => {
