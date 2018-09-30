@@ -7,6 +7,7 @@ import AvailableRooms from './AvailableRooms';
 import SearchRoom from './SearchRoom';
 import UserTitlebar from './UserTitlebar';
 import RoomTitlebar from './RoomTitlebar';
+import Profile from './Profile';
 
 export {
   Sidebar,
@@ -18,4 +19,5 @@ export {
   SearchRoom,
   UserTitlebar,
   RoomTitlebar,
+  Profile,
 }

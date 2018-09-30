@@ -1,4 +1,4 @@
-import { createMessage, getMessages } from '../../services/data';
+import { createMessage } from '../../services/offline/data';
 
 const initState = {
   roomLoaded: false,
@@ -33,9 +33,9 @@ const room = (state = initState, action) => {
         messageText: '',
         messages: updatedMessages(state, action),
       };
+    default:
+      return state;
   }
-
-  return state;
 };
 
 const updatedMessages = ({ messages }, { message, to }) => {

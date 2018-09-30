@@ -1,10 +1,10 @@
-import { createRoom, createMessage, getOnlineList } from '../../services/data';
+import { createRoom, createMessage, getMockOnlineList } from '../../services/offline/data';
 
 const initState = {
   selectedIndex: -1,
   searchText: '',
   list: [],
-  availableList: getOnlineList(),
+  availableList: getMockOnlineList(),
 };
 
 const rooms = (state = initState, action) => {

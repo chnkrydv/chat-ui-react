@@ -1,7 +1,41 @@
-.menu{
+.sidebar{
   display: grid;
   grid-template-rows: 70px 70px 1fr;
   min-width: 360px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 360px;
+}
+
+.sidebar__rooms{
+  align-self: stretch;
+  overflow: auto;
+}
+
+.rooms{
+  margin-bottom: 60px;
+}
+
+.rooms__title{
+  padding: 60px 20px 0px 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #444;
+}
+
+.available{
+  margin-top: 40px;
+  background-color: #f8f8f8;
+}
+
+.available__title{
+  padding: 60px 20px 0px 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+  font-size: 24px;
+  color: #444;
 }
 
 .content{
@@ -9,6 +43,11 @@
   grid-template-rows: 70px 1fr 70px;
   height: 100%;
   border-left: 2px solid #ddd;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 360px;
 }
 
 .room{
@@ -71,6 +110,7 @@
   display: grid;
   grid-template-columns: 1fr; 
   padding: 8px 40px;
+  overflow: auto;
 }
 
 .messages__wrapper{
@@ -114,28 +154,53 @@
 
 
 
-
-
-.rooms{
-  margin-bottom: 60px;
+.profile{
+  padding: 30px 30px 15px 30px;
+  height: auto;
+  display: grid;
+  grid-template-rows: 70px 50px 50px 80px;
+  grid-template-columns: 1fr 1fr;
+  justify-items: stretch;
+  align-items: center;
+  align-content: center;
 }
 
-.rooms__title{
-  padding: 40px 20px 0px 20px;
-  text-align: center;
-  font-size: 24px;
+.profile__title{
+  padding: 10px 0 30px 0;
+  grid-column: 1 / span 2;
+  justify-self: center;
+  font-size: 20px;
   color: #444;
 }
 
-.available{
-  margin-top: 40px;
-  background-color: #f8f8f8;
+.profile__userid,
+.profile__userId__input,
+.profile__name,
+.profile__name__input{
+  padding: 0 20px;
 }
 
-.available__title{
-  padding: 60px 20px 0px 20px;
-  border-top: 1px solid #eee;
-  text-align: center;
-  font-size: 24px;
-  color: #444;
+
+.profile__userid,
+.profile__name{
+  justify-self: end;
+}
+
+
+.profile__userId__input,
+.profile__name__input{
+  border: 1px solid #aaa;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 4px;
+}
+
+.profile__join-room{
+  border: none;
+  border-radius: 4px;
+  grid-column: 1 / span 2;
+  background-color: #496;
+  color: white;
+  height: 40px;
+  cursor: pointer;
 }

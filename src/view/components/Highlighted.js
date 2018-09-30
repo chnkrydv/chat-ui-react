@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { contains, indexOf } from '../../services/stringer';
+import { contains, indexOf } from '../../services/utils/stringer';
 
 const Highlighted = ({ className, text, substring }) => {
   substring = contains(text, substring) ? substring : '';

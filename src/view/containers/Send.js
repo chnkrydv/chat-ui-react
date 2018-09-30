@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateMessageText, sendMessage } from '../../store/actions';
+import { updateMessageText, sendMessage } from '../../state/actions';
 
 const Send = ({ roomId, messageText, updateMessageText, sendMessage }) => {
   const onChange = ({ target }) => updateMessageText(target.value);

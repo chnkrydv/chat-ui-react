@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { initials } from '../../services/stringer';
+import { initials } from '../../services/utils/stringer';
 
 const Avatar = ({ name='' }) => {
   const shortName = initials(name).toUpperCase();

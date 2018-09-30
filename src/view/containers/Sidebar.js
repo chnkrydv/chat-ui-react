@@ -5,12 +5,12 @@ import { UserTitlebar, SearchRoom, Rooms, AvailableRooms } from './';
 
 const Sidebar = () => {
   return (
-    <div className="menu">
+    <div className="sidebar">
       <UserTitlebar />
       <SearchRoom />
-      <div>
-      <Rooms />
-      <AvailableRooms />
+      <div className="sidebar__rooms">
+        <Rooms />
+        <AvailableRooms />
       </div>
     </div>
   );

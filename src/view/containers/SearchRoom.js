@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateSearchText } from '../../store/actions';
+import { updateSearchText } from '../../state/actions';
 import { SearchBox } from '../components';
 
 const SearchRoom = ({ roomsSearchText, updateSearchText }) => {

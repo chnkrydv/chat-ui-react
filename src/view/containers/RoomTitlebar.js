@@ -4,18 +4,18 @@ import { connect } from 'react-redux';
 
 import { ProfileTitle } from '../components';
 
-const RoomTitlebar = ({ user }) => {
+const RoomTitlebar = ({ userName }) => {
   const addNewChatRoom = () => {
     console.log('adding room');
   }
 
   return (
-    <ProfileTitle name={user} addRoom={addNewChatRoom}/>
+    <ProfileTitle name={userName} addRoom={addNewChatRoom}/>
   );
 }
 
 const mapStateToProps = state => ({
-  user: state.app.user,
+  userName: state.app.userName,
 });
 
 const mapDispatchToProps = dispatch => ({

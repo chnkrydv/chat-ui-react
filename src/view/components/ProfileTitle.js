@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { Avatar, AddButton, MoreButton, Modal } from '.';
+import { Avatar, MoreButton, Modal } from '.';
 
-const ProfileTitle = ({ name, children, modalOpen, isModalOpen }) => (
-  <div className="profile-title">
-    <Avatar name={name} />
-    {name || ' '}
-    <MoreButton onClick={isModalOpen}>
-      <Modal open={modalOpen}>
-        {children}
-      </Modal>
-    </MoreButton>
-  </div>
-)
+const ProfileTitle = ({ name='', setProfileModalState }) => {
+  const openProfileModal = () => setProfileModalState(true);
+
+  return (
+    <div className="profile-title">
+      <Avatar name={name} />
+      <span>{name}</span>
+      <MoreButton onClick={openProfileModal} />
+    </div>
+  );
+}
 
 export default ProfileTitle;

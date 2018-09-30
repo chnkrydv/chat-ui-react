@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { openRoom } from '../../store/actions'
+import { openRoom } from '../../state/actions'
 import { RoomTile } from '../components';
 
 const Rooms = ({ rooms, searchText, selectedIndex, openRoom }) => {
