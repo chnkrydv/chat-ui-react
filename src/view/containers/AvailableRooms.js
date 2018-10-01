@@ -1,22 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { contains } from '../../services/utils/stringer';
 import { addRoom } from '../../state/actions'
 import { RoomTile } from '../components';
 
-const Rooms = ({ rooms, searchText, selectedIndex, addRoom }) => {
+const AvailableRooms = ({ rooms, searchText, addRoom }) => {
   const addAvailableToRooms = index => {
     const { id, name } = rooms[index];
     addRoom(id, name);
   }
+  const roomsList = rooms.filter(room => room && contains(room.name, searchText));
 
   return (
     <div className="available">
       <div className="available__title">
         {rooms.length ? 'Online' : 'No one online'}
       </div>
-      {rooms.length
-        ? rooms.map(({id, name}, key) => (
+      {roomsList.length
+        ? roomsList.map(({id, name}, key) => (
           <RoomTile
             key={key}
             index={key}
@@ -43,4 +46,19 @@ const mapDispatchToProps = dispatch => ({
   addRoom: (roomIndex, room) => dispatch(addRoom(roomIndex, room)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Rooms);
+AvailableRooms.propTypes = {
+  rooms: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+  })),
+  searchText: PropTypes.string,
+  addRoom: PropTypes.func,
+}
+
+AvailableRooms.defaultProps = {
+  rooms: [],
+  searchText: '',
+  addRoom: () => {},
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AvailableRooms);

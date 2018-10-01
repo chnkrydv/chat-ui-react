@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { setProfileModalState } from '../../state/actions';
@@ -20,5 +21,15 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setProfileModalState: isOpen => dispatch(setProfileModalState(isOpen)),
 });
+
+UserTitlebar.propTypes = {
+  userName: PropTypes.string,
+  setProfileModalState: PropTypes.func,
+}
+
+UserTitlebar.defaultProps = {
+  userName: '',
+  setProfileModalState: () => {},
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserTitlebar);

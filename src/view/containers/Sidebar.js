@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
 import { UserTitlebar, SearchRoom, Rooms, AvailableRooms } from './';
 
 const Sidebar = () => {
@@ -16,10 +14,4 @@ const Sidebar = () => {
   );
 }
 
-const mapStateToProps = state => ({
-});
-
-const mapDispatchToProps = dispatch => ({
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default Sidebar;

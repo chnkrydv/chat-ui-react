@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 
 import { Message } from '../components';
 
@@ -23,7 +23,16 @@ const mapStateToProps = state => ({
   messages: state.room.messages,
 });
 
-const mapDispatchToProps = dispatch => ({
-});
+Messages.propTypes = {
+  messages: PropTypes.arrayOf(PropTypes.shape({
+    fromeMe: PropTypes.bool,
+    to: PropTypes.string,
+    text: PropTypes.string,
+  }))
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Messages);
+Messages.defaultProps = {
+  messages: []
+}
+
+export default connect(mapStateToProps)(Messages);

@@ -2,7 +2,7 @@ import { createMessage } from '../../services/offline/data';
 
 const initState = {
   roomLoaded: false,
-  id: 0,
+  id: '',
   name: '',
   roomOptionsModalOpen: false,
   messages: [],

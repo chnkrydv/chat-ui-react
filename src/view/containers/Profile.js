@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { setProfileModalState, connectToServer, updateUserIdText, updateUserNameText } from '../../state/actions';
@@ -37,5 +38,25 @@ const mapDispatchToProps = dispatch => ({
   updateUserIdText: text => dispatch(updateUserIdText(text)),
   updateUserNameText: text => dispatch(updateUserNameText(text)),
 });
+
+Profile.propTypes = {
+  modalOpen: PropTypes.bool,
+  userId: PropTypes.string,
+  name: PropTypes.string,
+  connectToServer: PropTypes.func,
+  setModalState: PropTypes.func,
+  updateUserIdText: PropTypes.func,
+  updateUserNameText: PropTypes.func,
+}
+
+Profile.defaultProps = {
+  modalOpen: false,
+  userId: '',
+  name: '',
+  connectToServer: () => {},
+  setModalState: () => {},
+  updateUserIdText: () => {},
+  updateUserNameText: () => {},
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

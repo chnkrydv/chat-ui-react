@@ -1,4 +1,3 @@
-import AddButton from './AddButton';
 import Avatar from './Avatar';
 import Message from './Message';
 import MoreButton from './MoreButton';
@@ -18,7 +17,6 @@ export {
   Highlighted,
   RoomTile,
   PeekMessage,
-  AddButton,
   Modal,
   Timestamp,
   ProfileTitle,

@@ -1,5 +1,5 @@
 import { setProfile, getProfile } from '../../services/offline/data';
-import { connect, requestClientsList, sendMessage, } from '../../services/api/reqActions';
+import { connect, requestClientsList, sendMessage, } from '../../services/api/customSocket';
 
 const initState = {
   loading: false,
@@ -32,7 +32,7 @@ const app = (state = initState, action) => {
 
     case 'CONNECT_TO_SERVER':
       setProfile(state.editingUserId, state.editingUserName);
-      connect(state.editingUserId, state.editingUserName);
+      // connect(state.editingUserId, state.editingUserName); //socket code commented
       const { id, name } = getProfile()
       return {
         ...state,
@@ -46,18 +46,18 @@ const app = (state = initState, action) => {
         to: action.to,
         text: action.message,
       };
-      sendMessage(message);
+      // sendMessage(message); //socket code commented
       return { ...state };
     case 'REQUEST_CLIENTS_LIST':
-      requestClientsList();
+      // requestClientsList(); //socket code commented
       return { ...state };
 
 
     case 'CLIENTS_LIST_RECIEVED':
-      console.log(action.clients);
+      // console.log(action.clients); //socket code commented
       return { ...state };
     case 'MESSAGE_RECIEVED':
-      alert(action.message.text + ' from ' + action.message.from);
+      // alert(action.message.text + ' from ' + action.message.from); //socket code commented
       return { ...state };
 
 

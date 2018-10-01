@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import './styles/root.css'
-import { onClientsList, onMessage, requestClientsList } from '../services/api/reqActions';
-import { initApp, clientsListRecieved, messageRecieved } from '../state/actions';
+import { initApp } from '../state/actions';
 import { Sidebar, Content, Profile } from './containers';
 
-const Root = ({ initApp, clientsListRecieved, messageRecieved }) => {
-  requestClientsList();
-  onClientsList(clientsListRecieved);
-  onMessage(messageRecieved);
+const Root = ({ initApp }) => {
   initApp();
+  
   return (
     <div className="root">
       <Sidebar />
@@ -25,9 +23,15 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   initApp: () => dispatch(initApp()),
-  clientsListRecieved: clients => dispatch(onClientsList(clients)),
-  messageRecieved: message => dispatch(onMessage(message)),
 });
+
+Root.propTypes = {
+  initApp: PropTypes.func,
+}
+
+Root.defaultProps = {
+  initApp: () => {},
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Root);
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { updateMessageText, sendMessage } from '../../state/actions';
@@ -38,5 +39,19 @@ const mapDispatchToProps = dispatch => ({
   updateMessageText: message => dispatch(updateMessageText(message)),
   sendMessage: (message, to) => dispatch(sendMessage(message, to)),
 });
+
+Send.propTypes = {
+  roomId: PropTypes.string,
+  messageText: PropTypes.string,
+  updateMessageText: PropTypes.func,
+  sendMessage: PropTypes.func,
+}
+
+Send.defaultProps = {
+  roomId: '',
+  messageText: '',
+  updateMessageText: () => {},
+  sendMessage: () => {},
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Send);

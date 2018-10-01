@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { contains, indexOf } from '../../services/utils/stringer';
 
@@ -24,5 +25,17 @@ const Highlighted = ({ className, text, substring }) => {
 const ColoredText = ({ text }) => (
   <span className="colored bold">{text}</span>
 );
+
+Highlighted.propTypes = {
+  className: PropTypes.string,
+  text: PropTypes.string,
+  substring: PropTypes.string,
+}
+
+Highlighted.defaultProps = {
+  className: '',
+  text: '',
+  substring: '',
+}
 
 export default Highlighted;

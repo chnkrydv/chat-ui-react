@@ -1,24 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 
 import { ProfileTitle } from '../components';
 
-const RoomTitlebar = ({ userName }) => {
-  const addNewChatRoom = () => {
-    console.log('adding room');
-  }
-
-  return (
-    <ProfileTitle name={userName} addRoom={addNewChatRoom}/>
-  );
-}
+const RoomTitlebar = ({ userName, deleteRoom }) => (
+  <ProfileTitle name={userName} deleteRoom={deleteRoom}/>
+);
 
 const mapStateToProps = state => ({
   userName: state.app.userName,
 });
 
-const mapDispatchToProps = dispatch => ({
-});
+RoomTitlebar.propTypes = {
+  userName: PropTypes.string,
+  deleteRoom: PropTypes.func,
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(RoomTitlebar);
+RoomTitlebar.defaultProps = {
+  userName: '',
+  deleteRoom: () => {},
+}
+
+export default connect(mapStateToProps)(RoomTitlebar);

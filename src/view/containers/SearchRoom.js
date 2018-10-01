@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { updateSearchText } from '../../state/actions';
@@ -24,5 +25,15 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateSearchText: text => dispatch(updateSearchText(text)),
 });
+
+SearchRoom.propTypes = {
+  roomsSearchText: PropTypes.string,
+  updateSearchText: PropTypes.func,
+}
+
+SearchRoom.defaultProps = {
+  roomsSearchText: '',
+  updateSearchText: () => {},
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchRoom);
