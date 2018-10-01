@@ -20,20 +20,44 @@ User.prototype.getProfile = function () {
 
 const friends = [
   {
-    id: 'nitagr',
-    name: 'Nitesh Agarwal',
+    id: 'debsar',
+    name: 'Debjeet Sarkar',
   },
   {
-    id: 'srkch',
-    name: 'Saurabh Kumar',
+    id: 'sumkum',
+    name: 'Sumit Kumar',
   },
   {
-    id: 'mannj',
-    name: 'Mann Jain',
+    id: 'sujven',
+    name: 'Sujay Venaik',
   },
   {
-    id: 'sangrwl',
-    name: 'Sanjay Agarwal',
+    id: 'anksob',
+    name: 'Ankit Sobti',
+  },
+  {
+    id: 'privir',
+    name: 'Priyal Viroja',
+  },
+  {
+    id: 'deepat',
+    name: 'Deepak Pathania',
+  },
+  {
+    id: 'assin',
+    name: 'Asha Singh',
+  },
+  {
+    id: 'ramyn',
+    name: 'Ramyashree N',
+  },
+  {
+    id: 'harche',
+    name: 'Harsha Chelle',
+  },
+  {
+    id: 'erum',
+    name: 'Erum',
   },
 ];
 
