@@ -10,17 +10,17 @@ const AvailableRooms = ({ rooms, searchText, addRoom }) => {
   const addAvailableToRooms = index => {
     const { id, name } = rooms[index];
     addRoom(id, name);
-  }
-  const roomsList = rooms.filter(room => room && contains(room.name, searchText));
+  };
 
   return (
     <div className="available">
       <div className="available__title">
         {rooms.length ? 'Online' : 'No one online'}
       </div>
-      {roomsList.length
-        ? roomsList.map(({id, name}, key) => (
+      {rooms.length
+        ? rooms.map(({id, name}, key) => (
           <RoomTile
+            className={contains(name, searchText) ? '' : 'gone'}
             key={key}
             index={key}
             id={id}

@@ -15,14 +15,15 @@ const room = (state = initState, action) => {
       return {
         ...state,
         id: action.roomId,
-        name: action.roomName
+        name: action.roomName,
+        messages: [],
       };
     case 'OPEN_ROOM':
       const room = action.room;
       return {
         ...state,
-        id: room && room.id,
-        name: room && room.name,
+        id: room && room.roomId,
+        name: room && room.roomName,
         messages: room && room.messages
       };
     case 'UPDATE_MESSAGE_TEXT':

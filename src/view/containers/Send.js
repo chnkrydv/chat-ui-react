@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 
 import { updateMessageText, sendMessage } from '../../state/actions';
 
-const Send = ({ roomId, messageText, updateMessageText, sendMessage }) => {
-  const onChange = ({ target }) => updateMessageText(target.value);
+const Send = ({ userId, userName, roomId, messageText, updateMessageText, sendMessage }) => {
   const handleKeyPress = ({ key }) => key === 'Enter' && send();
+  const onChange = ({ target }) => {
+    if(!userId || !userName) return;
+    updateMessageText(target.value);
+  }
   const send = () => {
-    if(!messageText) return;
-
+    if(!messageText || !roomId) return;
     sendMessage(messageText, roomId);
     console.log('sent msg to: ', roomId)
     updateMessageText('');
@@ -31,6 +33,8 @@ const Send = ({ roomId, messageText, updateMessageText, sendMessage }) => {
 };
 
 const mapStateToProps = state => ({
+  userId: state.app.userId,
+  userName: state.app.userName,
   roomId: state.room.id,
   messageText: state.room.messageText,
 });
@@ -41,6 +45,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 Send.propTypes = {
+  userId: PropTypes.string,
+  userName: PropTypes.string,
   roomId: PropTypes.string,
   messageText: PropTypes.string,
   updateMessageText: PropTypes.func,
@@ -48,6 +54,8 @@ Send.propTypes = {
 }
 
 Send.defaultProps = {
+  userId: '',
+  userName: '',
   roomId: '',
   messageText: '',
   updateMessageText: () => {},

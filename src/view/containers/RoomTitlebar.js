@@ -4,21 +4,21 @@ import { connect } from 'react-redux';
 
 import { ProfileTitle } from '../components';
 
-const RoomTitlebar = ({ userName, deleteRoom }) => (
-  <ProfileTitle name={userName} deleteRoom={deleteRoom}/>
+const RoomTitlebar = ({ roomName, deleteRoom }) => (
+  <ProfileTitle name={roomName} deleteRoom={deleteRoom}/>
 );
 
 const mapStateToProps = state => ({
-  userName: state.app.userName,
+  roomName: state.room.name,
 });
 
 RoomTitlebar.propTypes = {
-  userName: PropTypes.string,
+  roomName: PropTypes.string,
   deleteRoom: PropTypes.func,
 }
 
 RoomTitlebar.defaultProps = {
-  userName: '',
+  roomName: '',
   deleteRoom: () => {},
 }
 

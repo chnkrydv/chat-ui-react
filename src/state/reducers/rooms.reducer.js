@@ -13,7 +13,7 @@ const rooms = (state = initState, action) => {
       const { newList, newAvailableList } = addAndUpdateRooms(state, action);
       return {
         ...state,
-        selectedIndex: state.list.length,
+        selectedIndex: 0,
         list: newList,
         availableList: newAvailableList,
       };
@@ -41,7 +41,7 @@ const rooms = (state = initState, action) => {
 
 const addAndUpdateRooms = ({ list, availableList }, { roomId, roomName }) => {
   const newAvailableList = availableList.filter(room => (room.id !== roomId));
-  const newList = [...list, createRoom(roomId, roomName)];
+  const newList = [createRoom(roomId, roomName), ...list];
 
   return { newList, newAvailableList };
 }

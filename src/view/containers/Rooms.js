@@ -8,20 +8,20 @@ import { RoomTile } from '../components';
 
 const Rooms = ({ rooms, searchText, selectedIndex, openRoom }) => {
   const openRoomWithDetails = index => openRoom(index, rooms[index]);
-  const roomsList = rooms.filter(room => room && contains(room.name, searchText));
 
   return (
     <div className="rooms">
       {
-        !roomsList.length
+        !rooms.length
           ? (<div className="rooms__title">
             Add an online friend to chat
             </div>)
           : null
       }
-      {roomsList.length
-        ? roomsList.map(({ id, name, messages }, key) => (
+      {rooms.length
+        ? rooms.map(({ id, name, messages }, key) => (
           <RoomTile
+            className={contains(name, searchText) ? '' : 'gone'}
             key={key}
             index={key}
             id={id}
@@ -63,7 +63,7 @@ Rooms.defaultProps = {
   rooms: [],
   searchText: '',
   selectedIndex: 0,
-  openRoom: () => {},
+  openRoom: () => { },
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Rooms);
