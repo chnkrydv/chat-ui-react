@@ -39,8 +39,10 @@ const room = (state = initState, action) => {
   }
 };
 
-const updatedMessages = ({ messages }, { message, to }) => {
-  return [...messages, createMessage(message, to)];
+const updatedMessages = ({ messages }, { message, to, fromMe }) => {
+  const newMessages = [...messages, createMessage(message, to, fromMe)];
+  console.log(newMessages);
+  return newMessages;
 }
 
 export default room;

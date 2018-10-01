@@ -46,10 +46,10 @@ const addAndUpdateRooms = ({ list, availableList }, { roomId, roomName }) => {
   return { newList, newAvailableList };
 }
 
-const roomsAfterSendingMessage = ({ list }, { message, to }) => {
+const roomsAfterSendingMessage = ({ list }, { message, to, fromMe }) => {
   const newList = list.map(room => {
     if (room && room.id === to)
-      room.messages = [...room.messages, createMessage(message, to)];
+      room.messages = [...room.messages, createMessage(message, to, fromMe)];
 
     return room;
   });

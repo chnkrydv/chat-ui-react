@@ -68,10 +68,11 @@ const requestClientsList = () => ({
   type: 'REQUEST_CLIENTS_LIST'
 })
 
-const sendMessage = (message, to) => ({
+const sendMessage = (message, to, fromMe) => ({
   type: 'SEND_MESSAGE',
   message,
-  to
+  to,
+  fromMe
 });
 // END: server calling actions
 

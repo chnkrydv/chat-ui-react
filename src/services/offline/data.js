@@ -45,8 +45,8 @@ const createRoom = (id, name) => ({
   messages: [],
 });
 
-const createMessage = (messageText, reciever) => ({
-  fromMe: true,
+const createMessage = (messageText, reciever, fromMe) => ({
+  fromMe: (typeof fromMe === 'undefined') ? true : fromMe,
   to: reciever,
   text: messageText,
   time: new Date(),

@@ -12,7 +12,9 @@ const Send = ({ userId, userName, roomId, messageText, updateMessageText, sendMe
   }
   const send = () => {
     if(!messageText || !roomId) return;
-    sendMessage(messageText, roomId);
+    const fromMe = !!Math.floor(Math.random() * 3);
+    console.log('randomly setting fromMe: ', fromMe)  
+    sendMessage(messageText, roomId, fromMe);
     console.log('sent msg to: ', roomId)
     updateMessageText('');
   }
@@ -41,7 +43,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateMessageText: message => dispatch(updateMessageText(message)),
-  sendMessage: (message, to) => dispatch(sendMessage(message, to)),
+  sendMessage: (message, to, fromMe) => dispatch(sendMessage(message, to, fromMe)),
 });
 
 Send.propTypes = {
